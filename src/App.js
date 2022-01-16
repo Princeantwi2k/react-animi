@@ -1,29 +1,37 @@
 
-import React from 'react';
-import Nav from './Component/Nav';
-import { BrowserRouter,Route,Switch } from 'react-router-dom';
-import Reporter from './Component/Reporter';
-import Home from './Component/Home';
-import About from './Component/About';
-import Skills from './Component/Skills';
-import Login from './Component/Login';
-const App = () => {
+import './App.css';
+import { BrowserRouter,Route,Routes} from 'react-router-dom';
+import Home from './Component/Home/Home';
+import ProjectDetails from './Component/Home/ProjetDetails';
+import Signup from './Component/Login/Signup';
+import Signin from './Component/Login/Signin';
+import CreateProject from './Component/Home/CreateProject';
+import Caro from './Component/Home/Caro';
+
+function App() {
   return (
-<BrowserRouter>
-<Nav />
-<Switch>
-<Route path="/" exact component={Home} />
-<Route path="/about" component={About} />
-<Route path="/skills" component={Skills} />
-<Route path="/report" component={Reporter} />
-<Route path="/login" component={Login} />
-</Switch>
-</BrowserRouter>
-     
+    <>
+    <BrowserRouter>
     
+<Routes>
+      <Route path="/" exact element={<Caro/>} />
+      <Route path="/boad" exact element={<Home />} />
+      <Route path="/project/:id" element={<ProjectDetails />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/news" element={<Signin />} />
+      <Route path="/new" element={<CreateProject/>} />
+</Routes>
+
+
+
+    
+    </BrowserRouter>
+  
+    </>
   );
 }
 
-
 export default App;
+
+
  
