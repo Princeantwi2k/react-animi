@@ -4,7 +4,6 @@ import { useState } from "react/cjs/react.development";
 import { db } from "../Firebase/config";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
-import { useRef } from "react";
 
 const CreateProject = () => {
   const [files, setFiles] = useState([]);
