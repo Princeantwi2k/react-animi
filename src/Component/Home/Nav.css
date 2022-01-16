@@ -1,0 +1,29 @@
+.brand-logo {
+  text-decoration: none;
+  position: absolute;
+}
+.brand-logos {
+  text-decoration: none;
+  color: white !important;
+}
+
+.nav {
+  display: flex;
+  justify-content: end;
+}
+
+@media screen and (min-width: 780px) {
+  .nav {
+    display: flex;
+    justify-content: end;
+  }
+  .brand-logo {
+    position: absolute;
+    bottom: 290px;
+    font-weight: bolder;
+    left: 30px;
+  }
+  .navs {
+    background-color: black;
+  }
+}
