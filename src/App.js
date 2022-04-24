@@ -1,37 +1,34 @@
 
-import './App.css';
-import { BrowserRouter,Route,Routes} from 'react-router-dom';
-import Home from './Component/Home/Home';
-import ProjectDetails from './Component/Home/ProjetDetails';
-import Signup from './Component/Login/Signup';
-import Signin from './Component/Login/Signin';
-import CreateProject from './Component/Home/CreateProject';
-import Caro from './Component/Home/Caro';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import "./App.css";
+import Home from "./component/Home";
+import Login from "./component/Login";
+import Signup from "./component/Signup";
+import ProtectedRoute from "./component/ProtectedRoute";
+import { UserAuthContextProvider } from "./context/UserAuthContext";
+import Boad from "./component/Boad";
+import CreateProject from "./component/CreateProject";
 
 function App() {
   return (
-    <>
-    <BrowserRouter>
-    
-<Routes>
-      <Route path="/" exact element={<Caro/>} />
-      <Route path="/boad" exact element={<Home />} />
-      <Route path="/project/:id" element={<ProjectDetails />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/news" element={<Signin />} />
-      <Route path="/new" element={<CreateProject/>} />
-</Routes>
-
-
-
-    
-    </BrowserRouter>
-  
-    </>
+   
+        <BrowserRouter>
+          <UserAuthContextProvider>
+            <Routes>
+              <Route
+                path="/"
+                exact
+                element={ <Home />}
+              />
+              <Route path="/boad" element={ <Boad /> } />
+              <Route path="/create" element={ <ProtectedRoute><CreateProject/></ProtectedRoute> } />
+              <Route path="/login" exact element={ <Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </UserAuthContextProvider>
+          </BrowserRouter>
+      
   );
 }
 
 export default App;
-
-
- 
