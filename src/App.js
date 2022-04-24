@@ -18,9 +18,9 @@ function App() {
               <Route
                 path="/"
                 exact
-                element={ <Home />}
+                element={ <ProtectedRoute><Home /></ProtectedRoute> }
               />
-              <Route path="/boad" element={ <Boad /> } />
+              <Route path="/boad" element={<ProtectedRoute><Boad /> </ProtectedRoute> } />
               <Route path="/create" element={ <ProtectedRoute><CreateProject/></ProtectedRoute> } />
               <Route path="/login" exact element={ <Login />} />
               <Route path="/signup" element={<Signup />} />
